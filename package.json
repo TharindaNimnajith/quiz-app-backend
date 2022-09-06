@@ -4,7 +4,7 @@
   "description": "express-rest-api",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "test": "jest --watch"
   },
   "jest": {
