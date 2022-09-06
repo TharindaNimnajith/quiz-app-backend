@@ -1,19 +1,11 @@
-// noinspection JSUnresolvedVariable
+// noinspection JSValidateTypes
 
 const mongoose = require('mongoose')
-const autoIncrement = require('mongoose-auto-increment')
-const uniqueValidator = require('mongoose-unique-validator')
 const {userTypes, userLevels, quizLevels, answers, lessons} = require('../config/enums.config')
 
 const Schema = mongoose.Schema
 
 const UsersSchema = new Schema({
-  userId: {
-    type: Number,
-    required: false,
-    unique: true,
-    trim: true
-  },
   firstName: {
     type: String,
     required: false,
@@ -107,17 +99,6 @@ const UsersSchema = new Schema({
 }, {
   timestamps: true,
   collection: 'Users'
-})
-
-UsersSchema.plugin(uniqueValidator)
-
-autoIncrement.initialize(mongoose.connection)
-
-UsersSchema.plugin(autoIncrement.plugin, {
-  model: 'Users',
-  field: 'userId',
-  startAt: 1000,
-  incrementBy: 1
 })
 
 module.exports = mongoose.model('Users', UsersSchema)

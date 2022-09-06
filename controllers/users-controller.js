@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 const bcrypt = require('bcrypt')
 const UserModel = require('../models/users.model')
 
